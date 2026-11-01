@@ -10,3 +10,5 @@ assets/originals
 .review
 PLAN.md
 AGENTS.md
+.vercel
+.env*

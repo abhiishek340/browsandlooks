@@ -1,10 +1,11 @@
 import { BookingFinale } from '@/components/home/BookingFinale';
 import { BookButton } from '@/components/ui/BookButton';
 import { PageIntro } from '@/components/ui/PageIntro';
+import { SocialLinks } from '@/components/ui/SocialLinks';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { TextLink } from '@/components/ui/TextLink';
 import { HoursTable } from '@/components/visit/HoursTable';
-import { business } from '@/content/business';
+import { business, visibleSocials } from '@/content/business';
 import { media } from '@/content/media';
 import { telLink } from '@/lib/booking';
 import { pageMetadata } from '@/lib/metadata';
@@ -65,6 +66,7 @@ export default function VisitPage() {
               )}
             </ul>
             <BookButton arrow />
+            <SocialLinks links={visibleSocials()} />
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { business } from '@/content/business';
+import { SocialLinks } from '@/components/ui/SocialLinks';
+import { business, visibleSocials } from '@/content/business';
 import { primaryNav } from '@/content/navigation';
 import { telLink } from '@/lib/booking';
 import { groupHours } from '@/lib/hours';
@@ -75,16 +76,8 @@ export function SiteFooter() {
                 <a href={`mailto:${business.email.value}`}>{business.email.value}</a>
               </li>
             )}
-            {business.social
-              .filter((s) => s.status === 'verified')
-              .map((s) => (
-                <li key={s.value.url}>
-                  <a href={s.value.url} target="_blank" rel="noopener">
-                    {s.value.platform}
-                  </a>
-                </li>
-              ))}
           </ul>
+          <SocialLinks links={visibleSocials()} className={styles.social} />
         </div>
       </div>
 

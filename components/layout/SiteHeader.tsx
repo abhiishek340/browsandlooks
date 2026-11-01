@@ -1,4 +1,5 @@
 import { BookButton } from '@/components/ui/BookButton';
+import { visibleSocials } from '@/content/business';
 import { MobileNavigation } from './MobileNavigation';
 import { NavLinks } from './NavLinks';
 import { Wordmark } from './Wordmark';
@@ -14,7 +15,7 @@ export function SiteHeader() {
         </nav>
         <div className={styles.actions}>
           <BookButton size="compact" className={styles.book} />
-          <MobileNavigation />
+          <MobileNavigation socials={visibleSocials()} />
         </div>
       </div>
     </header>

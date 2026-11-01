@@ -1,0 +1,16 @@
+.thread {
+  pointer-events: none;
+  overflow: visible;
+}
+
+.brass {
+  color: var(--color-brass);
+}
+
+.ivory {
+  color: rgb(247 242 234 / 0.7);
+}
+
+.oxblood {
+  color: var(--color-oxblood);
+}

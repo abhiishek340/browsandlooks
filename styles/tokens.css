@@ -1,0 +1,56 @@
+:root {
+  /* Colour */
+  --color-ivory: #f7f2ea;
+  --color-oxblood: #4a1828;
+  --color-parchment: #e8ded2;
+  --color-rose: #d8b7ad;
+  --color-ink: #211b19;
+  --color-brass: #a4875c;
+
+  --color-oxblood-deep: #3a111f;
+  --color-ink-soft: rgb(33 27 25 / 0.72);
+  --color-rule: rgb(33 27 25 / 0.16);
+  --color-rule-strong: rgb(33 27 25 / 0.32);
+  --color-ivory-soft: rgb(247 242 234 / 0.78);
+  --color-ivory-rule: rgb(247 242 234 / 0.22);
+
+  /* Type families are injected by next/font as --font-display / --font-sans */
+  --font-serif: var(--font-display), 'Times New Roman', serif;
+  --font-ui: var(--font-sans), system-ui, sans-serif;
+
+  /* Fluid type scale */
+  --text-hero: clamp(3.5rem, 2.2rem + 5.6vw, 8rem);
+  --text-h2: clamp(2.5rem, 1.7rem + 3.4vw, 4.75rem);
+  --text-h3: clamp(1.625rem, 1.4rem + 0.8vw, 2.25rem);
+  --text-lead: clamp(1.1875rem, 1.1rem + 0.35vw, 1.4375rem);
+  --text-body: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+  --text-small: 0.9375rem;
+  --text-label: 0.75rem;
+
+  --leading-display: 0.98;
+  --leading-body: 1.62;
+  --tracking-label: 0.18em;
+
+  /* Layout */
+  --page-max: 1400px;
+  --gutter: clamp(20px, 4.4vw, 72px);
+  --section-space: clamp(80px, 9vw, 144px);
+  --section-space-sm: clamp(56px, 6vw, 96px);
+  --header-height: 72px;
+  --booking-bar-height: 0px;
+  --radius: 2px;
+
+  /* Motion */
+  --ease-atelier: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-quick: 200ms;
+  --dur-swap: 400ms;
+  --dur-reveal: 650ms;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+    --booking-bar-height: 72px;
+  }
+}

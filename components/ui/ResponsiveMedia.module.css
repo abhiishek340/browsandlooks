@@ -1,0 +1,22 @@
+.frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-parchment);
+  border-radius: var(--radius);
+}
+
+.img {
+  object-fit: cover;
+  object-position: var(--focal-mobile);
+}
+
+@media (min-width: 768px) {
+  .img {
+    object-position: var(--focal-desktop);
+  }
+}
+
+.natural {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,70 @@
+.section {
+  position: relative;
+  background: var(--color-oxblood);
+  color: var(--color-ivory);
+  padding-block: clamp(96px, 13vw, 200px);
+  overflow: hidden;
+}
+
+/* A faint printed vignette — static */
+.section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70% 80% at 50% 0%, rgb(255 255 255 / 0.055) 0%, rgb(255 255 255 / 0.025) 45%, rgb(255 255 255 / 0) 100%);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.label {
+  color: var(--color-ivory-soft);
+}
+
+.title {
+  margin-top: 28px;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(3.25rem, 1.6rem + 6.4vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  max-width: 10em;
+  text-wrap: balance;
+}
+
+.title em {
+  display: block;
+  font-weight: 500;
+}
+
+.thread {
+  width: min(78%, 640px);
+  height: 30px;
+  margin-block: 36px 40px;
+}
+
+.actions {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+.phone {
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  color: var(--color-ivory-soft);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--dur-quick) var(--ease-atelier);
+}
+
+.phone:hover {
+  color: var(--color-ivory);
+}

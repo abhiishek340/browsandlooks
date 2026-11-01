@@ -1,0 +1,247 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+  interpolate-size: allow-keywords;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Static paper grain — rasterised once, never animated */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.38;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--color-oxblood);
+  color: var(--color-ivory);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-oxblood);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-ivory);
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--page-max) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 12px 18px;
+  background: var(--color-oxblood);
+  color: var(--color-ivory);
+  font-size: var(--text-small);
+  transform: translateY(-160%);
+  transition: transform var(--dur-quick) var(--ease-atelier);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+  outline-color: var(--color-ink);
+}
+
+/* ---------- Typography helpers ---------- */
+
+.display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: var(--leading-display);
+  color: var(--color-oxblood);
+  font-feature-settings: 'kern', 'liga', 'dlig';
+}
+
+.display em,
+.italic {
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.measure {
+  max-width: 34em;
+}
+
+.oldstyle {
+  font-variant-numeric: oldstyle-nums proportional-nums;
+}
+
+/* ---------- Progressive motion ----------
+   Elements are only pre-hidden when the inline boot script has confirmed
+   JS + motion are available. A watchdog removes the class if the motion
+   code never mounts, so content is never left hidden. */
+
+html.js-motion [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+}
+
+html.js-motion [data-image-reveal] {
+  clip-path: inset(0 0 100% 0);
+}
+
+/* Opacity (not visibility) so pre-hidden headings stay in the accessibility tree */
+html.js-motion [data-split],
+html.js-motion [data-intro-title],
+html.js-motion [data-split-chars] {
+  opacity: 0;
+}
+
+html.js-motion [data-intro-fade] {
+  opacity: 0;
+}
+
+html.js-motion [data-intro-media] {
+  clip-path: inset(100% 0 0 0);
+}
+
+/* Masked line wrappers created by SplitText keep descenders and italic overhangs */
+[class*='split-line'] {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  padding-inline: 0.06em;
+  margin-inline: -0.06em;
+}
+
+/* Oversized image so the parallax drift never reveals an edge */
+[data-parallax] img {
+  top: -7% !important;
+  height: 114% !important;
+}
+
+html.js-motion:not(.intro-seen) [data-hero-line] {
+  transform: translate3d(0, 105%, 0);
+}
+
+html.js-motion:not(.intro-seen) [data-hero-fade] {
+  opacity: 0;
+}
+
+html.js-motion:not(.intro-seen) [data-hero-media] {
+  clip-path: inset(0 0 100% 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile booking bar reserves its own space */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(var(--booking-bar-height) + env(safe-area-inset-bottom));
+  }
+}

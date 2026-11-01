@@ -9,7 +9,12 @@ export type BookingAction = {
   hint?: string;
 };
 
-const telHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`;
+/** tel: link in E.164, so (385) 313-7676 dials as +13853137676 from any phone */
+const telHref = (phone: string) => {
+  const digits = phone.replace(/[^\d]/g, '');
+  const e164 = phone.trim().startsWith('+') ? `+${digits}` : digits.length === 10 ? `+1${digits}` : digits;
+  return `tel:${e164}`;
+};
 
 /**
  * The single source of truth for every "Book" control on the site.

@@ -6,10 +6,11 @@ import { useEffect, useRef } from 'react';
 import { business } from '@/content/business';
 import { primaryNav } from '@/content/navigation';
 import { BookButton } from '@/components/ui/BookButton';
+import { SocialLinks } from '@/components/ui/SocialLinks';
 import { telLink } from '@/lib/booking';
 import styles from './MobileNavigation.module.css';
 
-export function MobileNavigation() {
+export function MobileNavigation({ socials }: { socials: { platform: string; url: string }[] }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
@@ -71,6 +72,7 @@ export function MobileNavigation() {
             </a>
           )}
           <p className={styles.place}>Salt Lake City, Utah</p>
+          <SocialLinks links={socials} />
         </div>
       </dialog>
     </>

@@ -140,6 +140,7 @@
 .contact {
   font-family: var(--font-serif);
   font-size: 1.25rem;
+  font-variant-numeric: lining-nums;
   min-height: 44px;
   display: inline-flex;
   align-items: center;

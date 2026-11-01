@@ -28,9 +28,9 @@ export function BookingFinale({ title = 'Your chair is *ready when you are.*' }:
         />
         <div className={styles.actions} data-reveal>
           <BookButton variant="ivory" arrow />
-          {business.phone && getBookingAction().kind !== 'phone' && (
+          {business.phone && (
             <a href={telLink(business.phone.value)} className={styles.phone}>
-              or call {business.phone.value}
+              {getBookingAction().kind === 'phone' ? business.phone.value : `or call ${business.phone.value}`}
             </a>
           )}
         </div>

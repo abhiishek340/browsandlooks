@@ -11,12 +11,12 @@ refuses to build until every item is verified.
 |---|---|---|
 | Street address | "Studio address to be confirmed", Salt Lake City, UT | Full street address + ZIP |
 | Opening hours | Mon–Wed 10–7, Thu–Fri 10–8, Sat 9–6, Sun 11–5 | Real hours, holiday closures |
-| Telephone | +1 801 555 0142 (fictional 555 number) | Real number |
+| Telephone | ✓ Confirmed: (385) 313-7676 | — |
 | Email | hello@browandlooks.com | Real inbox |
-| Booking | none — every Book button falls back to phone | Provider (Fresha, Booksy, Vagaro, Square…) and URL; optional per-service URLs in `content/services.ts` |
+| Booking | ✓ By phone: every Book button calls (385) 313-7676 | Optional: an online booking provider URL switches every Book button to it |
 | Directions | Google Maps search for "Salt Lake City" | Maps link to the studio |
 | Domain | https://browandlooks.com | Confirmed domain (canonical URLs, sitemap, OG) |
-| Social | none shown | Verified Instagram / TikTok / Google profile URLs |
+| Social | Instagram, TikTok and Facebook icons link to each platform's homepage | The studio's profile URLs (hidden in launch builds until verified) |
 | Testimonials | none — section hidden | Exact quotes with permission + source (e.g. Google review link) |
 
 ## Services — `content/services.ts`

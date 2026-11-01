@@ -1,0 +1,51 @@
+.list {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-rule-strong);
+  border-radius: 50%;
+  transition:
+    background-color var(--dur-quick) var(--ease-atelier),
+    border-color var(--dur-quick) var(--ease-atelier),
+    color var(--dur-quick) var(--ease-atelier),
+    transform 300ms var(--ease-out-soft);
+}
+
+.link svg {
+  transition: transform 300ms var(--ease-out-soft);
+}
+
+.ink .link {
+  color: var(--color-oxblood);
+}
+
+.ink .link:hover {
+  background: var(--color-oxblood);
+  border-color: var(--color-oxblood);
+  color: var(--color-ivory);
+}
+
+.ivory .link {
+  color: var(--color-ivory);
+  border-color: var(--color-ivory-rule);
+}
+
+.ivory .link:hover {
+  background: var(--color-ivory);
+  border-color: var(--color-ivory);
+  color: var(--color-oxblood);
+}
+
+.link:hover svg {
+  transform: scale(1.08);
+}

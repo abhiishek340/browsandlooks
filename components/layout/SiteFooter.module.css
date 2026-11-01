@@ -51,6 +51,20 @@
   color: var(--color-oxblood);
 }
 
+.col .social {
+  display: flex;
+  margin-top: 6px;
+}
+
+.col .social a {
+  display: inline-flex;
+  padding-block: 0;
+}
+
+.col .social a:hover {
+  color: var(--color-ivory);
+}
+
 .address {
   font-style: normal;
   display: grid;

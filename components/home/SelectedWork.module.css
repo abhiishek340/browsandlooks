@@ -1,0 +1,151 @@
+.section {
+  padding-block: var(--section-space);
+}
+
+.head {
+  display: grid;
+  gap: 24px;
+  align-items: end;
+}
+
+.title {
+  margin-top: 22px;
+  font-size: var(--text-h2);
+  max-width: 12em;
+}
+
+.spread {
+  margin-top: clamp(40px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 14px;
+  list-style: none;
+}
+
+.spread figure {
+  display: grid;
+  gap: 12px;
+}
+
+.frame {
+  aspect-ratio: 4 / 5;
+}
+
+.tile {
+  display: block;
+}
+
+.tile :global(img) {
+  transition: filter 600ms var(--ease-out-soft);
+}
+
+.tile:hover :global(img) {
+  filter: brightness(1.04) saturate(1.05);
+}
+
+.tile .caption {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 500ms var(--ease-out-soft);
+  width: fit-content;
+}
+
+.tile:hover .caption,
+.tile:focus-visible .caption {
+  background-size: 100% 1px;
+}
+
+.caption {
+  display: flex;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--color-ink);
+}
+
+.caption span {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  color: var(--color-ink-soft);
+  padding-top: 0.35em;
+}
+
+.cell1 .frame,
+.cell4 .frame {
+  aspect-ratio: 3 / 4;
+}
+
+.cell2 {
+  margin-top: 48px;
+}
+
+.cell3 {
+  grid-column: 1 / -1;
+}
+
+/* Five images balance the two-column mobile spread */
+.cell6 {
+  display: none;
+}
+
+.cell3 .frame {
+  aspect-ratio: 16 / 10;
+}
+
+@media (min-width: 768px) {
+  .head {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .spread {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 24px;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .cell1 {
+    grid-column: 1 / span 4;
+  }
+
+  .cell2 {
+    grid-column: 6 / span 3;
+    margin-top: 120px;
+  }
+
+  .cell3 {
+    grid-column: 10 / span 3;
+    margin-top: 24px;
+  }
+
+  .cell3 .frame {
+    aspect-ratio: 3 / 4;
+  }
+
+  .cell4 {
+    grid-column: 2 / span 3;
+    margin-top: 72px;
+  }
+
+  .cell5 {
+    grid-column: 6 / span 5;
+    margin-top: 40px;
+  }
+
+  .cell5 .frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .cell6 {
+    display: block;
+    grid-column: 11 / span 2;
+    margin-top: 200px;
+  }
+}

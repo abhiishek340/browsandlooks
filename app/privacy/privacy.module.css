@@ -1,0 +1,25 @@
+.body {
+  max-width: calc(44rem + var(--gutter) * 2);
+  padding-bottom: var(--section-space);
+  display: grid;
+  gap: 18px;
+}
+
+.updated {
+  font-size: var(--text-small);
+  color: var(--color-ink-soft);
+}
+
+.body h2 {
+  margin-top: 28px;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-h3);
+  color: var(--color-oxblood);
+}
+
+.body a {
+  color: var(--color-oxblood);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

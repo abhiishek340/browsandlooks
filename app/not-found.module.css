@@ -1,0 +1,33 @@
+.wrap {
+  display: grid;
+  justify-items: start;
+  gap: 24px;
+  padding-block: clamp(80px, 14vw, 200px);
+}
+
+.wrap :global(.label) {
+  color: var(--color-oxblood);
+}
+
+.title {
+  font-size: clamp(3rem, 2rem + 4.5vw, 6.5rem);
+  max-width: 10em;
+}
+
+.text {
+  font-size: var(--text-lead);
+  max-width: 30em;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 32px;
+  margin-top: 12px;
+}
+
+.thread {
+  width: min(100%, 420px);
+  height: 40px;
+}

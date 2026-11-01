@@ -24,6 +24,7 @@ check('business.directionsUrl', business.directionsUrl);
 check('business.bookingUrl', business.bookingUrl);
 check('business.siteUrl (domain)', business.siteUrl);
 if (business.social.length === 0) issues.push('MISSING      business.social (verified Instagram etc.)');
+for (const s of business.social) check(`social link: ${s.value.platform}`, s);
 
 for (const s of services) {
   check(`service "${s.name}" price`, s.price);

@@ -6,7 +6,7 @@ export function PreviewNotice() {
   if (isLaunchBuild) return null;
   return (
     <p className={styles.notice} role="note">
-      Preview · prices, hours, contact details and photography are placeholders
+      Preview · prices, hours, address and photography are placeholders
     </p>
   );
 }

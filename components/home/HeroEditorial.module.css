@@ -1,0 +1,186 @@
+.hero {
+  position: relative;
+  overflow-x: clip;
+  padding-block: 28px 0;
+}
+
+.grid {
+  display: grid;
+  gap: 44px;
+}
+
+/* ---------- Copy ---------- */
+
+.copy {
+  position: relative;
+  z-index: 2;
+  container-type: inline-size;
+  display: grid;
+  justify-items: start;
+  align-content: center;
+}
+
+.kicker {
+  color: var(--color-ink);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  font-size: 0.6875rem;
+}
+
+.title {
+  margin-top: 26px;
+  /* Sized to the copy column so "feeling beautiful." always holds one line */
+  font-size: clamp(3.25rem, 17.6cqi, 8rem);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.022em;
+}
+
+.title em {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+/* Line masks: generous padding so ascenders, descenders and the italic f's
+   overhang are never clipped; released once the intro has settled. */
+.line {
+  display: block;
+  overflow: hidden;
+  padding: 0.04em 0.12em 0.16em;
+  margin: -0.04em -0.12em -0.16em;
+}
+
+.line > span {
+  display: inline-block;
+}
+
+.settled .line {
+  overflow: visible;
+}
+
+.support {
+  margin-top: 30px;
+  font-family: var(--font-ui);
+  font-size: var(--text-lead);
+  font-weight: 400;
+  letter-spacing: 0.035em;
+  color: var(--color-ink);
+}
+
+.actions {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 34px;
+}
+
+/* ---------- Visual ---------- */
+
+.visual {
+  position: relative;
+}
+
+.portraitBox {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  margin-inline: calc(var(--gutter) * -1);
+}
+
+.portrait {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--color-parchment);
+}
+
+.portraitImg {
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.thread {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  color: #b6976a;
+  filter: drop-shadow(0 0 0.6px rgb(74 24 40 / 0.35));
+}
+
+html:global(.js-motion):not(:global(.intro-seen)) .thread path {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+}
+
+.nails {
+  position: relative;
+  z-index: 1;
+  width: 44%;
+  aspect-ratio: 7 / 8;
+  margin-top: -22%;
+  margin-left: auto;
+  margin-right: calc(var(--gutter) * -0.4);
+  overflow: hidden;
+  outline: 1px solid rgb(74 24 40 / 0.16);
+  outline-offset: -7px;
+  background: var(--color-parchment);
+  /* An ivory mat so the card reads as a print laid over the portrait, never part of it */
+  box-shadow:
+    0 0 0 10px var(--color-ivory),
+    0 30px 60px -30px rgb(33 27 25 / 0.5);
+}
+
+.nailsImg {
+  object-fit: cover;
+}
+
+/* ---------- Desktop composition ---------- */
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-block: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0 24px;
+    align-items: stretch;
+  }
+
+  .copy {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+    padding-block: clamp(64px, 9vh, 120px) clamp(72px, 10vh, 140px);
+  }
+
+  .visual {
+    grid-column: 7 / -1;
+    grid-row: 1;
+    align-self: center;
+    container-type: inline-size;
+    padding-bottom: 7cqi;
+    padding-top: 10px;
+    margin-right: calc(var(--gutter) * -0.55);
+  }
+
+  .portraitBox {
+    margin-inline: 0 0;
+    margin-left: 12%;
+    aspect-ratio: auto;
+    /* Fit the first screen, but never narrower than the photo's own ratio (2:3),
+       so the portrait always scales by width and the thread stays registered. */
+    height: clamp(380px, calc(100svh - var(--header-height) - 36px - 7cqi), calc(88cqi / 0.7));
+  }
+
+  .nails {
+    position: absolute;
+    left: -3%;
+    bottom: 0;
+    width: 32%;
+    aspect-ratio: 0.88;
+    margin: 0;
+  }
+}

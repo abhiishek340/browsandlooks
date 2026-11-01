@@ -1,0 +1,102 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 52px;
+  padding: 0 30px;
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    color var(--dur-quick) var(--ease-atelier),
+    background-color var(--dur-quick) var(--ease-atelier),
+    border-color var(--dur-quick) var(--ease-atelier),
+    transform var(--dur-quick) var(--ease-atelier);
+}
+
+.button:active {
+  transform: scale(0.985);
+}
+
+/* A hairline sweep fills from the left on hover — CSS only */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 420ms var(--ease-out-soft);
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.compact {
+  min-height: 44px;
+  padding: 0 22px;
+  font-size: 1.0625rem;
+}
+
+.solid {
+  background: var(--color-oxblood);
+  color: var(--color-ivory);
+}
+
+.solid::before {
+  background: var(--color-oxblood-deep);
+}
+
+.outline {
+  border-color: var(--color-rule-strong);
+  color: var(--color-oxblood);
+}
+
+.outline::before {
+  background: var(--color-oxblood);
+}
+
+.outline:hover {
+  color: var(--color-ivory);
+  border-color: var(--color-oxblood);
+}
+
+.ivory {
+  background: var(--color-ivory);
+  color: var(--color-oxblood);
+}
+
+.ivory::before {
+  background: var(--color-parchment);
+}
+
+.ghost-ivory {
+  border-color: var(--color-ivory-rule);
+  color: var(--color-ivory);
+}
+
+.ghost-ivory::before {
+  background: var(--color-ivory);
+}
+
+.ghost-ivory:hover {
+  color: var(--color-oxblood);
+}
+
+.arrow {
+  flex: none;
+  transition: transform var(--dur-quick) var(--ease-atelier);
+}
+
+.button:hover .arrow {
+  transform: translateX(4px);
+}

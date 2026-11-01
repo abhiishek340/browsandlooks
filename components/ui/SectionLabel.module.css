@@ -1,0 +1,14 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--color-oxblood);
+}
+
+.label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}

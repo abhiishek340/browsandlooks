@@ -1,0 +1,8 @@
+assets
+.review
+docs
+tests
+test-results
+playwright-report
+PLAN.md
+AGENTS.md

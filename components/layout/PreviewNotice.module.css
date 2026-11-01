@@ -1,0 +1,9 @@
+.notice {
+  padding: 10px var(--gutter);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--color-ink);
+  background: var(--color-parchment);
+  border-top: 1px dashed var(--color-rule-strong);
+}

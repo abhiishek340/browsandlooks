@@ -1,0 +1,152 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  min-width: 44px;
+  padding-inline: 4px;
+  color: var(--color-oxblood);
+}
+
+.triggerLabel {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+}
+
+.bars {
+  position: relative;
+  width: 22px;
+  height: 7px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+}
+
+@media (min-width: 1024px) {
+  .trigger {
+    display: none;
+  }
+}
+
+.dialog {
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0 var(--gutter) calc(24px + env(safe-area-inset-bottom));
+  border: 0;
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  display: none;
+  flex-direction: column;
+}
+
+.dialog[open] {
+  display: flex;
+  animation: dialog-in 420ms var(--ease-out-soft);
+}
+
+.dialog::backdrop {
+  background: rgb(33 27 25 / 0.3);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: var(--color-oxblood);
+}
+
+.close {
+  min-height: 44px;
+  padding-inline: 4px;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  color: var(--color-oxblood);
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  border-bottom: 1px solid var(--color-rule);
+  animation: item-in 600ms var(--ease-out-soft) both;
+  animation-delay: calc(80ms + var(--i) * 60ms);
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding-block: 18px;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 9vw, 3.5rem);
+  line-height: 1.05;
+  color: var(--color-oxblood);
+}
+
+.link[aria-current='page'] {
+  font-style: italic;
+}
+
+.num {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--color-ink-soft);
+  transform: translateY(-1.4em);
+}
+
+.foot {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+
+.book {
+  width: 100%;
+}
+
+.contact {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-oxblood);
+}
+
+.place {
+  font-size: var(--text-small);
+  color: var(--color-ink-soft);
+}

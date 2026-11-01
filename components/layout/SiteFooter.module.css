@@ -1,0 +1,132 @@
+.footer {
+  position: relative;
+  border-top: 1px solid var(--color-rule);
+  padding-top: clamp(64px, 7vw, 112px);
+  background: var(--color-ivory);
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px 24px;
+}
+
+.intro {
+  grid-column: 1 / -1;
+}
+
+.tagline {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  line-height: 1.15;
+  color: var(--color-oxblood);
+  max-width: 14em;
+}
+
+.col {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  font-size: var(--text-small);
+}
+
+.col h2 {
+  color: var(--color-oxblood);
+}
+
+.col ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.col a {
+  display: inline-block;
+  padding-block: 4px;
+  transition: color var(--dur-quick) var(--ease-atelier);
+}
+
+.col a:hover {
+  color: var(--color-oxblood);
+}
+
+.address {
+  font-style: normal;
+  display: grid;
+  gap: 2px;
+}
+
+.small {
+  color: var(--color-oxblood);
+}
+
+.hours {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.hours div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 260px;
+}
+
+.hours dd {
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.signature {
+  margin-top: clamp(56px, 7vw, 120px);
+  font-family: var(--font-serif);
+  font-size: 18.2vw;
+  line-height: 0.74;
+  letter-spacing: -0.035em;
+  color: var(--color-oxblood);
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  padding-bottom: 0.02em;
+}
+
+.charMask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+  vertical-align: bottom;
+}
+
+.char {
+  display: inline-block;
+}
+
+.base {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 20px;
+  border-top: 1px solid var(--color-rule);
+  font-size: 0.8125rem;
+  color: var(--color-ink-soft);
+}
+
+.base a {
+  min-height: 24px;
+}
+
+.base a:hover {
+  color: var(--color-oxblood);
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1.6fr repeat(4, minmax(0, 1fr));
+  }
+  .intro {
+    grid-column: auto;
+  }
+}

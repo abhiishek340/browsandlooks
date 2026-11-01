@@ -1,0 +1,79 @@
+.section {
+  padding-block: var(--section-space-sm) var(--section-space);
+  border-top: 1px solid var(--color-rule);
+}
+
+.grid {
+  display: grid;
+  gap: 56px;
+}
+
+.block {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+  justify-items: start;
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.big {
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--color-oxblood);
+}
+
+.hours {
+  width: 100%;
+  max-width: 420px;
+  border-collapse: collapse;
+  font-family: var(--font-serif);
+  font-size: 1.3125rem;
+}
+
+.hours th,
+.hours td {
+  padding-block: 10px;
+  border-bottom: 1px solid var(--color-rule);
+  text-align: left;
+  font-weight: 400;
+}
+
+.hours tr[aria-current] th,
+.hours tr[aria-current] td {
+  color: var(--color-oxblood);
+}
+
+.hours tr[aria-current] :global(.label) {
+  font-size: 0.6875rem;
+  color: var(--color-oxblood);
+}
+
+.hours td {
+  text-align: right;
+  color: var(--color-ink-soft);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.contact {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}
+
+.contact a {
+  color: var(--color-oxblood);
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+}
